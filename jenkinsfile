@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                git 'https://github.com/intelliqittrainings/maven.git'
+                git 'https://github.com/tirupathireddybadekol/maven.git'
             }
         }
         stage('ContinuousBuild')
@@ -34,8 +34,13 @@ pipeline
         }
         stage('Continuousdelivery') 
         {
-           sh 'scp /home/ubuntu/.jenkins/workspace/pipelinejob/webapp/target/webapp.war ubuntu@10.1.1.251:/var/lib/tomcat9/webapps/prodapp.war'
+           steps 
+           {
+              sh 'scp /home/ubuntu/.jenkins/workspace/pipelinejob/webapp/target/webapp.war ubuntu@10.1.1.251:/var/lib/tomcat9/webapps/prodapp.war'
+           }
         }
-    }
-    
-}
+     }
+     
+     
+     
+ }
